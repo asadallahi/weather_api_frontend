@@ -6,8 +6,7 @@ this project is written with `reactjs`
 I used  `react-router-dom` and other third party libraries (like Bootstrap) for setting up UI.
 
 
-we can save the data to **localStorage** with `localStorage.setItem()` and
-prevent from requesting every time  and getting data after `10 minutes` 
+we can prevent from requesting every time  and getting data after `10 minutes` 
 based on the requirements (pdf file). I didn't have enough time 
 to complete the `caching mechanism` 
 

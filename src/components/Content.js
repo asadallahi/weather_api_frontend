@@ -13,10 +13,14 @@ export default class Content extends React.Component {
         }
     }
 
-    /*async componentDidMount() {
-        //let test = await ajax.get();
-        console.log('test', current);
-    }*/
+     async componentDidMount() {
+
+        let current_cities = await JSON.parse(localStorage.getItem('current_cities'));
+         this.setState({
+             current_cities
+         });
+        console.log('test', current_cities);
+    }
 
     async addCity() {
         console.log("current", this.state.current_cities);
@@ -26,6 +30,7 @@ export default class Content extends React.Component {
         let current = await  ajax.getCurrentWeather(city);
         current_cities.push(current);
 
+        localStorage.setItem('current_cities',JSON.stringify(current_cities));
         this.setState({
             current_cities
         });
@@ -42,7 +47,7 @@ export default class Content extends React.Component {
                         (this.state.current_cities !== []) ? this.state.current_cities.map((item, index) => {
                             let icon_url = "http://openweathermap.org/img/w/" + item.list[0].weather[0].icon + ".png";
                             return (
-                                <div className="card col-sm-4 sha-margin" key={index}>
+                                <div className="card col-sm-3 sha-margin" key={index}>
                                     <div className="card-body">
                                         <h5 className="card-title">{item.city.name}</h5>
                                         <div className="card-text">
@@ -57,7 +62,7 @@ export default class Content extends React.Component {
                             )
                         }) : null
                     }
-                    <div className="card add_city col-sm-4 sha-margin">
+                    <div className="card add_city col-sm-3 sha-margin">
                         <div className="card-body">
                             <h5 className="card-title">Add City</h5>
 

@@ -20,19 +20,32 @@ export default class Details extends React.Component {
     }
 
     render() {
-        if (this.state.details === null) {
+        let details = this.state.details;
+        if (details === null) {
             return (<div>Loading...</div>)
         } else {
-            let icon_url = "http://openweathermap.org/img/w/" + this.state.details.weather[0].icon + ".png";
 
             return (
                 <div>
-                    <h3>{this.state.details.name}</h3>
-                    <div>
-                        <img src={icon_url}/>
-                    </div>
-                    <div>temp: {this.state.details.main.temp}</div>
-                    <div>humidity: {this.state.details.main.humidity}</div>
+                    <h3>{details.city.name}</h3>
+                    {
+                        details.list.map((item, index) => {
+                            let icon_url = "http://openweathermap.org/img/w/" + item.weather[0].icon + ".png";
+                            return (
+                                <div className="card sha-margin" key={index}>
+                                    <div className="card-body">
+                                        <div>{item.dt_txt}</div>
+                                        <div>
+                                            <img src={icon_url}/>
+                                        </div>
+                                        <div>temp: {item.main.temp}</div>
+                                        <div>humidity: {item.main.humidity}</div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+
                 </div>
             );
         }

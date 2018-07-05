@@ -20,7 +20,7 @@ class App extends Component {
                         <div className="header">
                             <Header/>
                         </div>
-                        <div className="content">
+                        <div className="container-fluid">
                             <Route exact path="/" component={Content}/>
                             <Route path="/about" component={About}/>
                             <Route path='/details/:id' component={Details}/>
