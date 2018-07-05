@@ -13,8 +13,8 @@ to complete the `caching mechanism`
 
 
 
-###Backend
-As I told you before, I didn't have enough experience with `Symfony 3` syntax to complete 
+### Backend
+As I mentioned before, I didn't have enough experience with `Symfony 3` syntax to complete 
 the project on desired time.
 I Spent most of my time connecting to *Postgres database*.
 
